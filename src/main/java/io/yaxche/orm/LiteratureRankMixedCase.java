@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 
 @Entity ( name =  "LiteratureRank" )
 @Cacheable
-public class LiteratureRankMizedCase extends PanacheEntityBase {
+public class LiteratureRankMixedCase extends PanacheEntityBase {
 
 //    @Column( unique = true )
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +32,11 @@ public class LiteratureRankMizedCase extends PanacheEntityBase {
     @Column( name = "PubSource" )
     public String pubSource;
     
-    public LiteratureRankMizedCase() {        
+    public LiteratureRankMixedCase() {        
     }
     
 
-    public LiteratureRankMizedCase( /*String LR_ID,*/ String articleTitle, String articleURL, String pubSource, String publishDate) {
+    public LiteratureRankMixedCase( /*String LR_ID,*/ String articleTitle, String articleURL, String pubSource, String publishDate) {
         //this.LR_ID = LR_ID;
         this.articleTitle = articleTitle;
         this.articleURL = articleURL;

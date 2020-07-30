@@ -26,7 +26,23 @@ public class LitCount extends PanacheEntityBase implements Serializable {
     //                                  in application.properties
     @Column( name = "genename" )
     public String geneName;
-    @Column( name = "totalpapers" )
+    @Column( name = "unipid" )
+    public String uniprotID;
+    @Column( name = "pdbid" )
+    public String pdbID;
+    @Column( name = "geneid" )
+    public String geneID;
+    @Column( name = "aliaseskeywords" )
+    public String aliasesKeywords;
+    @Column( name = "proteinfunction" )
+    public String proteinFunction;
+    @Column( name = "description" )
+    public String description;
+    @Column( name = "smedesc" )
+    public String smeDesc;
+    @Column( name = "targetscore" )
+    public String targetScore;
+    @Column( name = "totalpapers")
     public Integer totalCountToDate;
     //                                  Of course thii isn't the way to do a moving window or
     //                                  time series, but we're in a bit of a hurry and it's a demo
@@ -56,6 +72,29 @@ public class LitCount extends PanacheEntityBase implements Serializable {
 
     @Column( name = "searchsite" )
     public String searchSite;
+    @Column( name = "slope" )
+    public Double slope;
+    @Column( name = "ry2017" )
+    public Double ry2017;
+    @Column( name = "ry2018" )
+    public Double ry2018;
+    @Column( name = "ry2019" )
+    public Double ry2019;
+
+
+    @Column( name = "inemerging" )
+    public String inEmerging;
+    @Column( name = "inhot" )
+    public String inHot;
+    @Column( name = "inprocess" )
+    public String inProcess;
+    @Column( name = "inreview" )
+    public String inReview;
+    @Column( name = "inshortnom" )
+    public String inShortNom;
+    @Column( name = "inselected" )
+    public String inSelected;
+
     
     public LitCount() {        
     }
@@ -80,6 +119,16 @@ public class LitCount extends PanacheEntityBase implements Serializable {
     public static List<LitCount> findbyGeneName(String geneName) {
         return list("geneName", geneName);
     }
+
+    public static List<LitCount> findbyUniPID(String unipID) {
+        return list("unipid", unipID);
+    }
+
+    @Override
+    public String toString() {
+        return "LitCount{" + "id=" + id + ", geneName=" + geneName + ", uniprotID=" + uniprotID + ", pdbID=" + pdbID + ", geneID=" + geneID + ", aliasesKeywords=" + aliasesKeywords + ", proteinFunction=" + proteinFunction + ", description=" + description + ", smeDesc=" + smeDesc + ", targetScore=" + targetScore + ", totalCountToDate=" + totalCountToDate + ", yr2010=" + yr2010 + ", yr2011=" + yr2011 + ", yr2012=" + yr2012 + ", yr2013=" + yr2013 + ", yr2014=" + yr2014 + ", yr2015=" + yr2015 + ", yr2016=" + yr2016 + ", yr2017=" + yr2017 + ", yr2018=" + yr2018 + ", yr2019=" + yr2019 + ", yr2020=" + yr2020 + ", searchSite=" + searchSite + ", slope=" + slope + ", ry2017=" + ry2017 + ", ry2018=" + ry2018 + ", ry2019=" + ry2019 + ", inEmerging=" + inEmerging + ", inHot=" + inHot + ", inProcess=" + inProcess + ", inReview=" + inReview + ", inShortNom=" + inShortNom + ", inSelected=" + inSelected + '}';
+    }
+
 
 
 }

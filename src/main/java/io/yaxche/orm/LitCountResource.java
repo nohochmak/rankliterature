@@ -52,6 +52,15 @@ public class LitCountResource {
         return multi;
     }
     
+    @GET
+    @Path("/byUniPID/{uniPID}")
+    public List<LitCount> getByUniPID(@PathParam String uniPID) {
+        List<LitCount> multi = LitCount.findbyUniPID( uniPID );
+        if (multi == null) {
+            throw new WebApplicationException("LitCount with uniPID " + uniPID + " does not exist.", 404);
+        }
+        return multi;
+    }
     
     
     
