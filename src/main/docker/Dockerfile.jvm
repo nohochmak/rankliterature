@@ -12,7 +12,8 @@
 # Then run the container using:
 #
 # docker run -i --rm -p 8080:8080 quarkus/hibernate-orm-panache-resteasy-jvm
-#
+# docker run -i --rm -p 8080:8080 us.gcr.io/dss-data-prov1/dss-rankliterature
+# gcloud run deploy --image us.gcr.io/cricket-dss-uservice-demo/dss-rankliterature  --platform managed
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1
 

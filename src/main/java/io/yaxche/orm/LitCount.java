@@ -42,44 +42,30 @@ public class LitCount extends PanacheEntityBase implements Serializable {
     public String smeDesc;
     @Column( name = "targetscore" )
     public String targetScore;
-    @Column( name = "totalpapers")
-    public Integer totalCountToDate;
-    //                                  Of course thii isn't the way to do a moving window or
-    //                                  time series, but we're in a bit of a hurry and it's a demo
-    //                                  Each year should be a row of course, or be in a compound field that holds the time series in a JSON string or similar
-    @Column( name = "yr2010" )
-    public Integer yr2010;
-    @Column( name = "yr2011" )
-    public Integer yr2011;
-    @Column( name = "yr2012" )
-    public Integer yr2012;
-    @Column( name = "yr2013" )
-    public Integer yr2013;
-    @Column( name = "yr2014" )
-    public Integer yr2014;
-    @Column( name = "yr2015" )
-    public Integer yr2015;
-    @Column( name = "yr2016" )
-    public Integer yr2016;
-    @Column( name = "yr2017" )
-    public Integer yr2017;
-    @Column( name = "yr2018" )
-    public Integer yr2018;
-    @Column( name = "yr2019" )
-    public Integer yr2019;
-    @Column( name = "yr2020" )
-    public Integer yr2020;
+//    @Column( name = "totalpapers")
+//    public Integer totalCountToDate;
+    @Column( name = "linreg")
+    public String linReg;
 
-    @Column( name = "searchsite" )
-    public String searchSite;
-    @Column( name = "slope" )
-    public Double slope;
-    @Column( name = "ry2017" )
-    public Double ry2017;
-    @Column( name = "ry2018" )
-    public Double ry2018;
-    @Column( name = "ry2019" )
-    public Double ry2019;
+    @Column( name = "pubbyyr" )
+    public String pubByYr;
+    @Column( name = "hallmarkscancer" )
+    public String hallMarksCancer;
+    @Column( name = "discometrics" )
+    public String discoMetrics;
+    
+ 
+    
+    
+    
+//    @Column( name = "slope" )
+//    public Double slope;
+//    @Column( name = "ry2017" )
+//    public Double ry2017;
+//    @Column( name = "ry2018" )
+//    public Double ry2018;
+//    @Column( name = "ry2019" )
+//    public Double ry2019;
 
 
     @Column( name = "inemerging" )
@@ -99,21 +85,9 @@ public class LitCount extends PanacheEntityBase implements Serializable {
     public LitCount() {        
     }
 
-    public LitCount(String geneName, Integer totalCountToDate, Integer yr2010, Integer yr2011, Integer yr2012, Integer yr2013, Integer yr2014, Integer yr2015, Integer yr2016, Integer yr2017, Integer yr2018, Integer yr2019, Integer yr2020, String searchSite) {
+    public LitCount( String geneName ) {
         this.geneName = geneName;
-        this.totalCountToDate = totalCountToDate;
-        this.yr2010 = yr2010;
-        this.yr2011 = yr2011;
-        this.yr2012 = yr2012;
-        this.yr2013 = yr2013;
-        this.yr2014 = yr2014;
-        this.yr2015 = yr2015;
-        this.yr2016 = yr2016;
-        this.yr2017 = yr2017;
-        this.yr2018 = yr2018;
-        this.yr2019 = yr2019;
-        this.yr2020 = yr2020;
-        this.searchSite = searchSite;
+        
     }
     
     public static List<LitCount> findbyGeneName(String geneName) {
@@ -126,7 +100,29 @@ public class LitCount extends PanacheEntityBase implements Serializable {
 
     @Override
     public String toString() {
-        return "LitCount{" + "id=" + id + ", geneName=" + geneName + ", uniprotID=" + uniprotID + ", pdbID=" + pdbID + ", geneID=" + geneID + ", aliasesKeywords=" + aliasesKeywords + ", proteinFunction=" + proteinFunction + ", description=" + description + ", smeDesc=" + smeDesc + ", targetScore=" + targetScore + ", totalCountToDate=" + totalCountToDate + ", yr2010=" + yr2010 + ", yr2011=" + yr2011 + ", yr2012=" + yr2012 + ", yr2013=" + yr2013 + ", yr2014=" + yr2014 + ", yr2015=" + yr2015 + ", yr2016=" + yr2016 + ", yr2017=" + yr2017 + ", yr2018=" + yr2018 + ", yr2019=" + yr2019 + ", yr2020=" + yr2020 + ", searchSite=" + searchSite + ", slope=" + slope + ", ry2017=" + ry2017 + ", ry2018=" + ry2018 + ", ry2019=" + ry2019 + ", inEmerging=" + inEmerging + ", inHot=" + inHot + ", inProcess=" + inProcess + ", inReview=" + inReview + ", inShortNom=" + inShortNom + ", inSelected=" + inSelected + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("LitCount{id=").append(id);
+        sb.append(", geneName=").append(geneName);
+        sb.append(", uniprotID=").append(uniprotID);
+        sb.append(", pdbID=").append(pdbID);
+        sb.append(", geneID=").append(geneID);
+        sb.append(", aliasesKeywords=").append(aliasesKeywords);
+        sb.append(", proteinFunction=").append(proteinFunction);
+        sb.append(", description=").append(description);
+        sb.append(", smeDesc=").append(smeDesc);
+        sb.append(", targetScore=").append(targetScore);
+        sb.append(", linReg=").append(linReg);
+        sb.append(", pubByYr=").append(pubByYr);
+        sb.append(", hallMarksCancer=").append(hallMarksCancer);
+        sb.append(", discoMetrics=").append(discoMetrics);
+        sb.append(", inEmerging=").append(inEmerging);
+        sb.append(", inHot=").append(inHot);
+        sb.append(", inProcess=").append(inProcess);
+        sb.append(", inReview=").append(inReview);
+        sb.append(", inShortNom=").append(inShortNom);
+        sb.append(", inSelected=").append(inSelected);
+        sb.append('}');
+        return sb.toString();
     }
 
 
